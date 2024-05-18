@@ -17,11 +17,11 @@ class App extends Tasks {
         return (
             <div className="app">
                 <header className="app-header">
-                    <h1>My To-Do List</h1>  // Header displaying the title of the to-do list.
+                    <h1>My To-Do List</h1>  
                 </header>
                 <div className="main-content">
-                    <Paper elevation={3} className="todo-container">  // Paper component used as a container with an elevation effect.
-                        <form onSubmit={this.handleSubmit} className="task-form">  // Form for adding a new task.
+                    <Paper elevation={3} className="todo-container">  
+                        <form onSubmit={this.handleSubmit} className="task-form">  
                             <TextField
                                 variant="outlined"  // TextField with an outlined variant.
                                 size="small"  // Smaller TextField size for better UI fit.
@@ -32,22 +32,22 @@ class App extends Tasks {
                                 placeholder="Add New TO-DO"  // Placeholder text.
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
-                                Add Task  // Button to submit the form and add a new task.
+                                Add Task  
                             </Button>
                         </form>
-                        <div className="tasks-list">  // Container for the list of tasks.
+                        <div className="tasks-list">  
                             {tasks.map((task) => (
-                                <Paper key={task._id} className="task-item">  // Each task is displayed in its own Paper component.
+                                <Paper key={task._id} className="task-item">  
                                     <Checkbox
                                         checked={task.completed}  // Checkbox to mark the task as completed or not.
                                         onClick={() => this.handleUpdate(task._id)}  // Handle task completion status toggle.
                                         color="primary"
                                     />
-                                    <div className={task.completed ? "task-text completed" : "task-text"}>  // Text styling changes based on completion.
-                                        {task.task}  // Display the task text.
+                                    <div className={task.completed ? "task-text completed" : "task-text"}> 
+                                        {task.task} 
                                     </div>
                                     <Button onClick={() => this.handleDelete(task._id)} color="secondary" className="delete-task-btn">
-                                        Delete  // Button to delete a task.
+                                        Delete  
                                     </Button>
                                 </Paper>
                             ))}
