@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: html-config
+  namespace: three-tier
+data:
+  index.html: |
+    <html>
+    <body>
+      <h1>Welcome to My Website</h1>
+    </body>
+    </html>
