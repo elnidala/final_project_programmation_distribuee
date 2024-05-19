@@ -66,11 +66,11 @@ kubectl create namespace three-tier
 Maintain the following sequence when deploying the database:
 
 ```bash
-kubectl apply -f secrets.yaml -n three-tier
-kubectl apply -f pv.yaml -n three-tier
-kubectl apply -f pvc.yaml -n three-tier
-kubectl apply -f deployment.yaml -n three-tier
-kubectl apply -f service.yaml -n three-tier
+kubectl apply -f secrets.yaml
+kubectl apply -f pv.yaml
+kubectl apply -f pvc.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 ```
 
 ### Backend Deployment
@@ -78,8 +78,8 @@ kubectl apply -f service.yaml -n three-tier
 Deploy the backend components with:
 
 ```bash
-kubectl apply -f deployment.yaml -n three-tier
-kubectl apply -f service.yaml -n three-tier
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 ```
 
 ### Nginx Reverse Proxy Deployment
@@ -87,10 +87,10 @@ kubectl apply -f service.yaml -n three-tier
 Deploy Nginx as a reverse proxy:
 
 ```bash
-kubectl apply -f nginx_html_configmap.yaml -n three-tier
-kubectl apply -f nginx_configmap.yaml -n three-tier
-kubectl apply -f nginx_deploy.yaml -n three-tier
-kubectl apply -f nginx-service.yaml -n three-tier
+kubectl apply -f nginx_html_configmap.yaml
+kubectl apply -f nginx_configmap.yaml
+kubectl apply -f nginx_deploy.yaml
+kubectl apply -f nginx-service.yaml
 ```
 
 ### Frontend Deployment
@@ -109,7 +109,7 @@ Before deploying the frontend, update the backend URL in the `deployment.yaml` f
     minikube ip
     ```
 
-3. Update line 32 in the `deployment.yaml` file to change the backend URL to:
+3. Update line 32 in the frontend `deployment.yaml` file to change the backend URL to:
 
     ```
     http://<yourIP-addressorlocalhost>:<nodeport-ip>/api/tasks
@@ -118,8 +118,8 @@ Before deploying the frontend, update the backend URL in the `deployment.yaml` f
 Then apply these files:
 
 ```bash
-kubectl apply -f deployment.yaml -n three-tier
-kubectl apply -f service.yaml -n three-tier
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 ```
 
 ### Access Your Frontend
